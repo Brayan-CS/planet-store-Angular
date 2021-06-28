@@ -1,0 +1,21 @@
+<input type="text" [(ngModel)]="title" />
+{{ title }}
+
+<div *ngIf="title === 'brayan'">esto es un div</div>
+
+<button (click)="addItem()">Add item</button>
+
+<ul>
+  <li *ngIf="licores.length === 0">La lista esta vacia! :(</li>
+  <li *ngFor="let licor of licores; index as i">
+    {{ licor }} {{ i }}
+    <button (click)="deleteItem(i)">Delete</button>
+  </li>
+</ul>
+
+<div *ngFor="let planet of planets">
+  <app-planet
+    (planetClicked)="clickPlanet($event)"
+    [planet]="planet"
+  ></app-planet>
+</div>
